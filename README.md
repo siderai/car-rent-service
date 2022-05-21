@@ -1,6 +1,6 @@
 # Concurrent car rent service
 
-This project is a plaground for asyncio library.
+This project is a playground for asyncio library.
 
 ## Stack:
 
@@ -16,7 +16,6 @@ Python3
 3. Building an asynchronous data pipeline
 4. Unit and integration testing for concurrency
 5. Elements of async app architecture
-
 
 
 
