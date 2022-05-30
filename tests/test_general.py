@@ -1,5 +1,6 @@
 import asyncio
 from asyncio import Queue
+from typing import List
 
 import pytest
 
@@ -16,7 +17,7 @@ pytestmark = pytest.mark.asyncio
 class TestPipelineExecution:
     ITEMS_COUNT = 10
 
-    async def _get_all_items(self, outbound: Queue) -> list[PipelineContext]:
+    async def _get_all_items(self, outbound: Queue) -> List[PipelineContext]:
         res = list()
         for _ in range(self.ITEMS_COUNT):
             res.append(await outbound.get())

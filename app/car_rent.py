@@ -1,7 +1,7 @@
 import asyncio
 from asyncio import FIRST_COMPLETED, Event, Queue, Semaphore
 from collections import defaultdict
-from typing import Any, Dict, List, Optional, Set
+from typing import Any, Dict, List, Optional, Set, Mapping
 
 from app.const import MAX_PARALLEL_AGG_REQUESTS_COUNT, WORKERS_COUNT
 
@@ -21,7 +21,7 @@ CURRENT_AGG_REQUESTS_COUNT = 0
 BOOKED_CARS: Dict[int, Set[str]] = defaultdict(set)
 
 
-async def get_offers(source: str) -> List[dict]:
+async def get_offers(source: str) -> List[Mapping]:
     """
     Эта функция эмулирует асинхронный запрос по сети в сервис каршеринга source.
     Например source = "yandex" - запрашиваем список свободных автомобилей в сервисе yandex.
@@ -56,7 +56,7 @@ async def get_offers(source: str) -> List[dict]:
     ]
 
 
-async def get_offers_from_sourses(sources: List[str]) -> List[dict]:
+async def get_offers_from_sourses(sources: List[str]) -> List[Mapping]:
     """
     Эта функция агрегирует предложения из списка сервисов по каршерингу
     """
@@ -132,7 +132,7 @@ async def chain_filter_offers(
         await outbound.put(ctx)
 
 
-async def cancel_book_request(user_id: int, offer: dict):
+async def cancel_book_request(user_id: int, offer: Mapping):
     """
     Эмулирует запрос отмены бронирования авто
     """
@@ -140,7 +140,7 @@ async def cancel_book_request(user_id: int, offer: dict):
     BOOKED_CARS[user_id].remove(offer.get("url"))
 
 
-async def book_request(user_id: int, offer: dict, event: Event) -> dict:
+async def book_request(user_id: int, offer: Mapping, event: Event) -> Mapping:
     """
     Эмулирует запрос бронирования авто. В случае отмены вызывает cancel_book_request.
     """

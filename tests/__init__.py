@@ -1,5 +1,7 @@
 import asyncio
 from asyncio import Queue
+from typing import List, Mapping
+
 
 AGGREGATOR_REQUEST = [
     "somewhere1",
@@ -9,7 +11,7 @@ AGGREGATOR_REQUEST = [
 ]
 
 
-def gen_offers(source: str) -> list[dict]:
+def gen_offers(source: str) -> List[Mapping]:
     return [
         {"url": f"http://{source}/car?id=1", "price": 1_000, "brand": "LADA"},
         {"url": f"http://{source}/car?id=2", "price": 5_000, "brand": "MITSUBISHI"},

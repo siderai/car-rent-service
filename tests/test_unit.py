@@ -79,7 +79,7 @@ class TestChainFilter:
                 "LADA",
                 None,
                 [{
-                    "url": f"http://source/car?id=1",
+                    "url": "http://source/car?id=1",
                     "price": 1_000,
                     "brand": "LADA"
                 }],
@@ -88,7 +88,7 @@ class TestChainFilter:
                 "MITSUBISHI",
                 None,
                 [{
-                    "url": f"http://source/car?id=2",
+                    "url": "http://source/car?id=2",
                     "price": 5_000,
                     "brand": "MITSUBISHI",
                 }],
@@ -97,7 +97,7 @@ class TestChainFilter:
                 "KIA",
                 None,
                 [{
-                    "url": f"http://source/car?id=3",
+                    "url": "http://source/car?id=3",
                     "price": 3_000,
                     "brand": "KIA"
                 }],
@@ -106,7 +106,7 @@ class TestChainFilter:
                 "DAEWOO",
                 None,
                 [{
-                    "url": f"http://source/car?id=4",
+                    "url": "http://source/car?id=4",
                     "price": 2_000,
                     "brand": "DAEWOO"
                 }],
@@ -115,7 +115,7 @@ class TestChainFilter:
                 "PORSCHE",
                 None,
                 [{
-                    "url": f"http://source/car?id=5",
+                    "url": "http://source/car?id=5",
                     "price": 10_000,
                     "brand": "PORSCHE",
                 }],
@@ -124,7 +124,7 @@ class TestChainFilter:
                 None,
                 1_000,
                 [{
-                    "url": f"http://source/car?id=1",
+                    "url": "http://source/car?id=1",
                     "price": 1_000,
                     "brand": "LADA"
                 }],
@@ -134,17 +134,17 @@ class TestChainFilter:
                 3_000,
                 [
                     {
-                        "url": f"http://source/car?id=1",
+                        "url": "http://source/car?id=1",
                         "price": 1_000,
                         "brand": "LADA"
                     },
                     {
-                        "url": f"http://source/car?id=3",
+                        "url": "http://source/car?id=3",
                         "price": 3_000,
                         "brand": "KIA"
                     },
                     {
-                        "url": f"http://source/car?id=4",
+                        "url": "http://source/car?id=4",
                         "price": 2_000,
                         "brand": "DAEWOO",
                     },
@@ -154,7 +154,7 @@ class TestChainFilter:
                 "PORSCHE",
                 10_000,
                 [{
-                    "url": f"http://source/car?id=5",
+                    "url": "http://source/car?id=5",
                     "price": 10_000,
                     "brand": "PORSCHE",
                 }],
@@ -202,7 +202,7 @@ class TestBookRequest:
             book_request(
                 user_id,
                 {
-                    "url": f"http://source/car?id=1",
+                    "url": "http://source/car?id=1",
                     "price": 1_000,
                     "brand": "LADA"
                 },

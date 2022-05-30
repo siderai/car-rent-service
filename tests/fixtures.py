@@ -1,4 +1,8 @@
+import asyncio
+
 import pytest
+
+from app.car_rent import BOOKED_CARS
 
 
 @pytest.fixture
