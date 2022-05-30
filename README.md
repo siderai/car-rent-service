@@ -14,7 +14,7 @@ Python3
 1. General asyncio understanding
 2. Working with Tasks, Coroutines, Events, Queues, Semaphores
 3. Building an asynchronous data pipeline
-4. Unit and integration testing for concurrency
+4. Testing concurrency
 5. Elements of async app architecture
 
 
