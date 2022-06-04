@@ -1,4 +1,4 @@
-# Concurrent car rent service
+# Async car rent service
 
 This project is a playground for asyncio library.
 
