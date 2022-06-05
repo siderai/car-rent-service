@@ -105,13 +105,11 @@ async def chain_combine_service_offers(inbound: Queue[PipelineContext],
             worker_combine_service_offers(inbound, outbound, requests_sem))
 
 
-async def chain_filter_offers(
-    inbound: Queue,
-    outbound: Queue,
-    brand: Optional[str] = None,
-    price: Optional[int] = None,
-    **kw,
-):
+async def chain_filter_offers(inbound: Queue,
+                              outbound: Queue,
+                              brand: Optional[str] = None,
+                              price: Optional[int] = None,
+                              **kw):
     """
     Функция обработывает данных из очереди inbound и передает результат в outbound очередь.
     При наличии параметров brand и price - отфильтрует список предложений.
