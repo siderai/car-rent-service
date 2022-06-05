@@ -172,7 +172,7 @@ async def worker_book_car(inbound: Queue[PipelineContext],
             task = asyncio.create_task(book_request(ctx.user_id, offer, event))
             tasks.append(task)
 
-        # дожидаемся выполнения первой выполеннной задачи (бронирование), остальные отменяем
+        # дожидаемся первого успешного бронирования, остальные задачи отменяем
         done, pending = await asyncio.wait(tasks, return_when=FIRST_COMPLETED)
 
         for task in done:
