@@ -23,7 +23,7 @@ BOOKED_CARS: Dict[int, Set[str]] = defaultdict(set)
 
 async def get_offers(source: str) -> List[Mapping]:
     """
-    Эта функция эмулирует асинхронный запрос по сети в сервис каршеринга source.
+    Эмулирует асинхронный запрос по сети в сервис каршеринга source.
     Например source = "yandex" - запрашиваем список свободных автомобилей в сервисе yandex.
     """
     await asyncio.sleep(1)
@@ -58,7 +58,7 @@ async def get_offers(source: str) -> List[Mapping]:
 
 async def get_offers_from_sourses(sources: List[str]) -> List[Mapping]:
     """
-    Эта функция агрегирует предложения из списка сервисов по каршерингу
+    Агрегирует предложения из списка сервисов по каршерингу
     """
 
     global CURRENT_AGG_REQUESTS_COUNT
@@ -80,8 +80,8 @@ async def worker_combine_service_offers(inbound: Queue[PipelineContext],
                                         outbound: Queue[PipelineContext],
                                         requests_sem: Semaphore):
     """
-    Этот воркер обрабатывает данные из очереди inbound и передает результат в очередь outbound.
-    Количество параллельных вызовов функции get_offers_from_sourses в воркерах ограничено.
+    Обрабатывает данные из очереди inbound и передает результат в очередь outbound.
+    Количество параллельных вызовов функции get_offers_from_sourses в воркерах ограничено семафором.
     """
     while True:
         async with requests_sem:
@@ -111,7 +111,7 @@ async def chain_filter_offers(inbound: Queue,
                               price: Optional[int] = None,
                               **kw):
     """
-    Функция обработывает данных из очереди inbound и передает результат в outbound очередь.
+    Обработывает данных из очереди inbound и передает результат в outbound очередь.
     При наличии параметров brand и price - отфильтрует список предложений.
     """
     while True:
@@ -159,7 +159,7 @@ async def book_request(user_id: int, offer: Mapping, event: Event) -> Mapping:
 async def worker_book_car(inbound: Queue[PipelineContext],
                           outbound: Queue[PipelineContext]):
     """
-    Этот worker обрабатывает данные из очереди inbound и передает результат в очередь outbound
+    Обрабатывает данные из очереди inbound и передает результат в очередь outbound
     """
     while True:
         ctx: PipelineContext = await inbound.get()
