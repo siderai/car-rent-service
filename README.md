@@ -17,6 +17,6 @@ Python3
 4. Testing concurrency
 5. Elements of async app architecture
 
+TODO:
 
-
-Training project at metaclass.kts.studio
+- Asyncpg instead of emulated requests
